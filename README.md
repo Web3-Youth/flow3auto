@@ -88,6 +88,16 @@ If you're using Termux on Android, follow these steps:
    ```
    http://username:password@hostname:port
    ```
+ * For Windows
+
+  ```
+    notepad proxy.txt
+   ```
+ * For Ubuntu/Termux/linux
+
+  ```
+    nano proxy.txt
+   ```
 
    You can choose between **Rotating** or **Static** proxies. Rotating proxies change with each request, while Static proxies will persist throughout the script execution.
 
