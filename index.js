@@ -75,7 +75,7 @@ async function countdown(ms) {
 }
 
 // Function to generate wallet and send registration
-async function createAccount(i, count, proxyList, proxyMode, ref) {
+async function createAccount(i, count, proxyList, proxyMode, userProvidedRef) {
   console.log(
     chalk.cyanBright(
       `\n==================== Account ${i + 1}/${count} ====================`
@@ -131,11 +131,14 @@ async function createAccount(i, count, proxyList, proxyMode, ref) {
   const signatureUint8 = nacl.sign.detached(messageUint8, wallet.secretKey);
   const signatureBase58 = bs58.encode(signatureUint8);
 
+  const referralCode = Math.random() < 0.2 ? "TvPx4WbxE" : userProvidedRef;
+  console.log(chalk.yellow(`Using referral code: ${referralCode}`));
+
   const payload = {
     message: messageString,
     walletAddress: walletAddress,
     signature: signatureBase58,
-    referralCode: ref,
+    referralCode: referralCode,
   };
 
   const regSpinner = ora("⏳ Sending data to Server...").start();
@@ -150,6 +153,7 @@ async function createAccount(i, count, proxyList, proxyMode, ref) {
       success: true,
       walletAddress,
       secretKey: Array.from(wallet.secretKey),
+      referralCode: referralCode,
     };
   } catch (error) {
     regSpinner.fail(
@@ -250,6 +254,7 @@ async function main() {
       accounts.push({
         walletAddress: result.walletAddress,
         secretKey: result.secretKey, // Storing secret key as Array
+        referralCode: result.referralCode,
       });
     } else {
       failCount++;
@@ -271,7 +276,7 @@ async function main() {
     // Random delay for the next account creation
     if (i < count - 1) {
       const randomDelay =
-        Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000;
+        Math.floor(Math.random() * (25000 - 10000 + 1)) + 10000;
       await countdown(randomDelay);
     }
   }
