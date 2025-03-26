@@ -1,5 +1,8 @@
 # Web3Youth - Flow3 Auto Reff
 
+![Web3Youth-Flow3](Flow3_banner.png)
+
+
 Web3Youth - Flow3 Auto Reff is a Node.js-based script that automates the process of creating accounts using a referral code, with support for proxy usage. The script allows users to generate Solana wallet addresses, sign messages for verification, and register accounts via an API, all while handling proxy configurations for better anonymity and geographic routing.
 
 # Project Details
