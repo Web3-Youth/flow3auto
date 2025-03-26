@@ -2,6 +2,10 @@
 
 Web3Youth - Flow3 Auto Reff is a Node.js-based script that automates the process of creating accounts using a referral code, with support for proxy usage. The script allows users to generate Solana wallet addresses, sign messages for verification, and register accounts via an API, all while handling proxy configurations for better anonymity and geographic routing.
 
+# Project Details
+
+- [Check Out In Web3Youth TG Channel](https://t.me/UniqueAlphaAirdrop/13601)
+
 ## Features
 
 - Generate multiple Solana wallet addresses.
@@ -20,6 +24,8 @@ Before you begin, ensure you have the following installed:
 
 ## Installation
 
+### Installation on Linux & Windows
+
 1. Clone the repository:
 
    ```bash
@@ -34,6 +40,39 @@ Before you begin, ensure you have the following installed:
 
 3. Install the dependencies:
 
+   ```bash
+   npm install
+   ```
+
+### Installation on Termux (Android)
+
+If you're using Termux on Android, follow these steps:
+
+1. Update and install required dependencies:
+   ```bash
+   apt update && apt upgrade -y
+   apt install nodejs -y
+   apt install git -y
+   ```
+
+2. Verify installations:
+   ```bash
+   node -v
+   npm -v
+   ```
+   Ensure Node.js, npm, and Python are installed properly.
+
+3. Clone the repository:
+   ```bash
+   git clone https://github.com/web3-youth/flow3auto.git
+   ```
+
+4. Navigate into the project directory:
+   ```bash
+   cd flow3auto
+   ```
+
+5. Install the dependencies:
    ```bash
    npm install
    ```
@@ -87,3 +126,9 @@ Progress: 1/5 accounts registered. (Success: 1, Failed: 0)
 
 - **Proxy Issues**: If you encounter issues with proxies, ensure that your `proxy.txt` file is correctly formatted and that the proxies are functional.
 - **API Errors**: If the registration fails, the script will display error messages indicating the problem. Ensure that the API is accessible and that your referral code is correct.
+- **Missing Dependencies**: If you face module errors in Termux, try reinstalling dependencies using:
+  ```bash
+  npm install
+  pip install --upgrade pip
+  pip install requests urllib3
+  ```
